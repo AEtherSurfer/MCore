@@ -12,21 +12,27 @@ sourceCompatibility = 1.7
 repositories {
     mavenCentral()
 	maven {
+		//Bukkit Repo
 		url "http://repo.bukkit.org/content/groups/public"
     }
 	maven {
+		//ProtocolLib Repo
 		url "http://repo.comphenix.net/content/groups/public"
     }
 	maven {
+		//Vault Repo
 		url "http://ci.herocraftonline.com/plugin/repository/everything"
     }
 	maven {
+		//Required for upline dependencies
 		url "http://omwah.sdf.org/maven/repo/snapshots/"
     }
 	maven {
+		//Required for upline dependencies
 		url "http://repo.greatmancode.com/content/groups/public/"
     }
 	maven {
+		//Required for upline dependencies
 		url "http://files.krinsoft.net:8085/nexus/content/groups/public"
 	}
 }
