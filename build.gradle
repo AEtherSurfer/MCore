@@ -1,8 +1,10 @@
-import org.apache.tools.ant.filters.ReplaceTokens
-
 apply plugin: 'java'
 apply plugin: 'maven'
 apply plugin: 'eclipse'
+
+ext {
+	buildNumber = "DEV"
+}
 
 group = "com.massivecraft"
 version = "6.4.1-SNAPSHOT"
@@ -52,15 +54,21 @@ sourceSets {
 			srcDir 'src'
 		}
 		resources {
-			file 'plugin.yml'
+			srcDir "$projectDir"
+			include 'plugin.yml'
 		}
 	}
 }
 
 processResources  {
-	filter ReplaceTokens, tokens: [
-		version: project.version,
-	]
+	filter {
+		line ->
+		line
+		.replace('${name}', project.name)
+		.replace('${version}', project.version)
+		.replace('${buildNumber}', project.ext.buildNumber)
+		.replace('${pluginMainClass}', "${project.group}.${project.name.toLowerCase()}.$project.name")
+	}
 }
 
 //include dependencies for a "fat jar"
