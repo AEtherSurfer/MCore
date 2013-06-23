@@ -5,7 +5,7 @@ apply plugin: 'maven'
 apply plugin: 'eclipse'
 
 group = "com.massivecraft"
-version = "6.3.1-SNAPSHOT"
+version = "6.4.1-SNAPSHOT"
 
 sourceCompatibility = 1.7
 
@@ -32,8 +32,8 @@ repositories {
 }
 
 dependencies {
-	compile 'org.bukkit:bukkit:1.5.2-R0.2-SNAPSHOT'
-	compile 'org.bukkit:craftbukkit:1.5.2-R0.2-SNAPSHOT'
+	compile 'org.bukkit:bukkit:1.5.2-R1.1-SNAPSHOT'
+	compile 'org.bukkit:craftbukkit:1.5.2-R1.1-SNAPSHOT'
 	compile 'com.comphenix.protocol:ProtocolLib:2.4.3'
 	compile ('net.milkbowl.vault:Vault:1.2.26-SNAPSHOT') {
 		exclude module: 'Multiverse-Inventories'
