@@ -70,11 +70,20 @@ processResources  {
 	}
 }
 
-//include dependencies for a "fat jar"
-//http://docs.codehaus.org/display/GRADLE/Cookbook#Cookbook-Creatingafatjar
-//jar {
-//	from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
-//}
+task sourceJar(type: Jar) {
+    classifier = 'sources'
+    from sourceSets.main.allSource
+}
+
+configurations {
+    sourceArchives
+}
+
+artifacts {
+    sourceArchives sourceJar
+}
+
+install.configuration = configurations.sourceArchives
 
 task wrapper(type: Wrapper) {
 	gradleVersion = '2.11'
