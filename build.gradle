@@ -9,8 +9,6 @@ ext {
 group = "com.massivecraft"
 version = "2.8.6AES-SNAPSHOT"
 
-sourceCompatibility = 1.7
-
 repositories {
     mavenCentral()
 	maven {
@@ -36,11 +34,9 @@ repositories {
 }
 
 dependencies {
-	//compile 'org.bukkit:bukkit:1.8.8-R0.1-SNAPSHOT'
 	compile ('org.spigotmc:spigot-api:1.8.8-R0.1-SNAPSHOT') {
 		exclude module: 'bungeecord-chat'
 	}
-	//compile 'org.bukkit:craftbukkit:1.6.2-R0.1-SNAPSHOT'
 	compile ('net.milkbowl.vault:VaultAPI:1.5') {
 		exclude module: 'Multiverse-Inventories'
 		exclude module: 'bukkit'

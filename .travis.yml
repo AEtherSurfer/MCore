@@ -1,3 +1,13 @@
 language: java
 jdk:
-  - oraclejdk7
+- oraclejdk8
+
+deploy:
+  provider: releases
+  api_key:
+    secure: XG0j8H+A21I1TTgzWuO1RS/jo9/Zy42KyaP9uAsjjwpz+Wao9sN8rXln1B1bqg4jOzkVsYDhenr5w2cclQAJztH7IW2gH9D0ZbVITOLkRccNQlVfWaZhgzCiA1pMkESutgHlWMTKNeYVZkaIiw+Q5TD+MsBogncbRHg3MCLb9Ao=
+  file_glob: true
+  file: 'build/libs/*'
+  on:
+    tags: true
+    repo: AEtherSurfer/MassiveCore
