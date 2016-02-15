@@ -7,7 +7,7 @@ ext {
 }
 
 group = "com.massivecraft"
-version = "6.5.0AES-SNAPSHOT"
+version = "2.8.6AES-SNAPSHOT"
 
 sourceCompatibility = 1.7
 
@@ -18,12 +18,12 @@ repositories {
 		url "http://repo.bukkit.org/content/groups/public"
     }
 	maven {
-		//ProtocolLib Repo
-		url "http://repo.comphenix.net/content/groups/public"
-    }
+		//Spigot Repo
+		url "https://hub.spigotmc.org/nexus/content/repositories/snapshots"
+	}
 	maven {
 		//Vault Repo
-		url "http://ci.herocraftonline.com/plugin/repository/everything"
+		url "http://nexus.theyeticave.net/content/repositories/pub_releases"
     }
 	maven {
 		//Required for upline dependencies
@@ -33,18 +33,17 @@ repositories {
 		//Required for upline dependencies
 		url "http://repo.greatmancode.com/content/groups/public/"
     }
-	maven {
-		//Required for upline dependencies
-		url "http://files.krinsoft.net:8085/nexus/content/groups/public"
-	}
 }
 
 dependencies {
-	compile 'org.bukkit:bukkit:1.6.2-R0.1-SNAPSHOT'
-	compile 'org.bukkit:craftbukkit:1.6.2-R0.1-SNAPSHOT'
-	compile 'com.comphenix.protocol:ProtocolLib:2.4.7'
-	compile ('net.milkbowl.vault:Vault:1.2.27-SNAPSHOT') {
+	//compile 'org.bukkit:bukkit:1.8.8-R0.1-SNAPSHOT'
+	compile ('org.spigotmc:spigot-api:1.8.8-R0.1-SNAPSHOT') {
+		exclude module: 'bungeecord-chat'
+	}
+	//compile 'org.bukkit:craftbukkit:1.6.2-R0.1-SNAPSHOT'
+	compile ('net.milkbowl.vault:VaultAPI:1.5') {
 		exclude module: 'Multiverse-Inventories'
+		exclude module: 'bukkit'
 	}
 }
 
@@ -78,5 +77,5 @@ processResources  {
 //}
 
 task wrapper(type: Wrapper) {
-	gradleVersion = '1.6'
+	gradleVersion = '2.11'
 }
