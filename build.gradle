@@ -10,6 +10,7 @@ group = "com.massivecraft"
 version = "2.8.6AES-SNAPSHOT"
 
 repositories {
+	mavenLocal()
     mavenCentral()
 	maven {
 		//Bukkit Repo
@@ -33,11 +34,15 @@ repositories {
     }
 }
 
+configurations {
+	provided
+}
+
 dependencies {
-	compile ('org.spigotmc:spigot-api:1.8.8-R0.1-SNAPSHOT') {
+	provided ('org.spigotmc:spigot-api:1.8.8-R0.1-SNAPSHOT') {
 		exclude module: 'bungeecord-chat'
 	}
-	compile ('net.milkbowl.vault:VaultAPI:1.5') {
+	provided ('net.milkbowl.vault:VaultAPI:1.5') {
 		exclude module: 'Multiverse-Inventories'
 		exclude module: 'bukkit'
 	}
@@ -52,6 +57,7 @@ sourceSets {
 			srcDir "$projectDir"
 			include 'plugin.yml'
 		}
+		compileClasspath += configurations.provided
 	}
 }
 
@@ -71,15 +77,9 @@ task sourceJar(type: Jar) {
     from sourceSets.main.allSource
 }
 
-configurations {
-    sourceArchives
-}
-
 artifacts {
-    sourceArchives sourceJar
+    archives sourceJar
 }
-
-install.configuration = configurations.sourceArchives
 
 task wrapper(type: Wrapper) {
 	gradleVersion = '2.11'
